@@ -6,18 +6,18 @@ import { ContactsProvider } from "../contexts/ContactsProvider";
 import { ConversionProvider } from "../contexts/ConversionsProvider";
 
 function App() {
-const [id, setId] = useLocalStorage('id');
+  const [id, setId] = useLocalStorage('id');
 
-const dashboard = (
-<ContactsProvider>
-  <ConversionProvider>
-      <Dashboard id={id}/>
-  </ConversionProvider>
-</ContactsProvider>)
+  const dashboard = (
+    <ContactsProvider>
+      <ConversionProvider>
+        <Dashboard id={id} />   
+      </ConversionProvider>
+    </ContactsProvider>)
 
-  return (  <>
-      {id? dashboard  :  <Login onIdSubmit={setId} />}
-
+  return (<>
+    {id ? dashboard : <Login onIdSubmit={setId} />}
+    {/* if there is selected cobversiion, show it */}
   </>)
 }
 
