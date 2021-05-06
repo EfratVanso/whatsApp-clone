@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'
 //this custom hook save data on the local storage
 
 const PREFIX = 'whatsApp-clone-'; //to prevent conflict inside local storage with other apps
+
 export default function useLocalStorage(key, initialValue) {
    const prefixedKey = PREFIX + key;
    const [value, setValue] = useState(()=>{
