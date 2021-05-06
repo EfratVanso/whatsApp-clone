@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { Modal, Form, Button } from 'react-bootstrap'
 import { useContacts } from '../contexts/ContactsProvider'
-import { useConversion } from '../contexts/ConversionsProvider'
+import { useConversions } from '../contexts/ConversionsProvider'
 
 export default function NewConversionModal({ closeModal }) {
 
     const [selectedContactIds, setSelectedContactIds] = useState([])
     const { contacts } = useContacts();
-    const { createConversion } = useConversion();
+    const { createConversion } = useConversions();
 
     function handleSubmit(e) {
         e.preventDefault();
