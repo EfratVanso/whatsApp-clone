@@ -10,7 +10,7 @@ function App() {
 
   const dashboard = (
     <ContactsProvider>
-      <ConversionProvider>
+      <ConversionProvider id={id}>
         <Dashboard id={id} />   
       </ConversionProvider>
     </ContactsProvider>)
