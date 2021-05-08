@@ -1,4 +1,4 @@
-import React, {useContext, useRef} from 'react'
+import React, { useRef} from 'react'
 import { Modal, Form, Button } from "react-bootstrap";
 import { useContacts } from '../contexts/ContactsProvider';
 
