@@ -44,7 +44,9 @@ export function ConversionProvider({ id, children }) {
     function sendMessage(recipients, text) {
         addMessageToConversion({ recipients, text, sender: id })
     }
-    //get the names of the recipients from their id's
+
+
+    //get the names of the recipients from their id's/ messages
     const formattedConversions = conversions.map((conversion, index) => {
         const recipients = conversion.recipients.map(recipient => {
             const contact = contacts.find(contact => {
@@ -53,8 +55,19 @@ export function ConversionProvider({ id, children }) {
             const name = (contact && contact.name) || recipient
             return { id: recipient, name }
         })
+
+        const messages =conversion.messages.map(message => {
+            const contact = contacts.find(contact => {
+                return contact.id === message.sender
+            })
+            const name = (contact && contact.name) || message.sender
+
+           const fromMe = id === message.sender
+            return { ...message, senderName: name, fromMe }
+        })
+
         const selected = index === selectedConversionIndex
-        return { ...conversion, recipients, selected }
+        return { ...conversion, messages, recipients, selected }// return each conversions with its data
     })
 
 
