@@ -14,6 +14,7 @@ export function ConversionProvider({ id, children }) {
     const [conversions, setConversions] = useLocalStorage('Conversions', [])
     const [selectedConversionIndex, setSelectedConversionIndex] = useState(0)
     const { contacts } = useContacts()
+    const socket = use
 
     function createConversion(recipients) {
         setConversions(prevConversion => {

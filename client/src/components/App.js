@@ -4,16 +4,19 @@ import Dashboard from './Dashboard'
 import useLocalStorage from "../hooks/useLocalStorage";
 import { ContactsProvider } from "../contexts/ContactsProvider";
 import { ConversionProvider } from "../contexts/ConversionsProvider";
+import { SocketProvider } from "../contexts/SocketProvider";
 
 function App() {
   const [id, setId] = useLocalStorage('id');
 
   const dashboard = (
-    <ContactsProvider>
-      <ConversionProvider id={id}>
-        <Dashboard id={id} />   
-      </ConversionProvider>
-    </ContactsProvider>)
+    <SocketProvider id={id}>
+      <ContactsProvider>
+        <ConversionProvider id={id}>
+          <Dashboard id={id} />
+        </ConversionProvider>
+      </ContactsProvider>
+    </SocketProvider>)
 
   return (<>
     {id ? dashboard : <Login onIdSubmit={setId} />}

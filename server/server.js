@@ -1,7 +1,7 @@
 const io = require('socket.io')(5000)
 
 io.on('connection', socket => {
-    const id = socket.handshake.query.id //socketIo creates id 
+    const id = socket.handshake.query.id //socketIo creates socket id 
     socket.join(id)
 
 
@@ -14,4 +14,6 @@ io.on('connection', socket => {
         });
     })
 })
-console.log('connected')
+console.log('connected on port 5000')
+
+// npm run devStart
